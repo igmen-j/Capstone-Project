@@ -28,12 +28,6 @@ def getDistance():
 
     return distance
 
-if __name__ == '__main__':
-    while True:
-        distance = getDistance()
-        print("Distance: %.1f cm\n" % distance)
-
-
 
 
 
