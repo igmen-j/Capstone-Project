@@ -16,3 +16,5 @@ if __name__ == '__main__':
         else:
             buzzerSound(0)
 
+        time.sleep(1)
+

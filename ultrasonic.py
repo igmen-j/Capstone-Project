@@ -16,10 +16,13 @@ def getDistance():
     time.sleep(0.000010)
     GPIO.output(TRIGGER_PIN, False)
 
+    startTime = time.time()
+    endTime = time.time()
+
     while GPIO.input(ECHO_PIN) == 0:
         startTime = time.time()
 
-    while GPIO.input(ECHO_PIN) == 0:
+    while GPIO.input(ECHO_PIN) == 1:
         endTime = time.time()
 
     duration = endTime - startTime
