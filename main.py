@@ -14,7 +14,7 @@ if __name__ == '__main__':
         distanceFront = getDistance(TRIGGER_PIN_FRONT, ECHO_PIN_FRONT)
         distanceRight = getDistance(TRIGGER_PIN_RIGHT, ECHO_PIN_RIGHT)
         print("Left: %.1f cm  |  Front: %.1f cm  |  Right: %.1f cm\n" % (distanceLeft, distanceFront, distanceRight))
-        if distanceLeft or distanceFront or distanceRight <= DISTANCE_TO_BUZZ:
+        if distanceLeft <= DISTANCE_TO_BUZZ or distanceFront <= DISTANCE_TO_BUZZ or distanceRight <= DISTANCE_TO_BUZZ:
             buzzerSound(1)
         else:
             buzzerSound(0)
