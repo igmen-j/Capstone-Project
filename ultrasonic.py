@@ -22,11 +22,19 @@ def getDistance(trigger, echo):
     startTime = time.time()
     endTime = time.time()
 
+    break_start = time.time()
     while GPIO.input(echo) == 0:
         startTime = time.time()
-
+        break_end = time.time()
+        if break_end - break_start > 1:
+            break
+    
+    break_start = time.time()
     while GPIO.input(echo) == 1:
         endTime = time.time()
+        break_end = time.time()
+        if break_end - break_start > 1:
+            break
 
     duration = endTime - startTime
 
