@@ -7,6 +7,7 @@ DISTANCE_TO_BUZZ = 10
 #subsystems
 from buzzer import buzzerSound
 from ultrasonic import getDistance
+from remote import readRemote
 
 if __name__ == '__main__':
     while True:
