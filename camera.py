@@ -41,6 +41,7 @@ def getCamera():
     ave_height = 0
     ave_count = 0
     
+
     ave_distance = 100
     position = "OUT"
     
@@ -56,7 +57,7 @@ def getCamera():
             block_y += blocks[index].m_y      
             block_width += blocks[index].m_width
             block_height += blocks[index].m_height
-            
+
         block_x /= count
         block_y /= count
         ave_count += 1
@@ -75,6 +76,7 @@ def getCamera():
       
         width_distance = focal_width * object_width / ave_width
         height_distance = focal_height * object_height / ave_height
+
         ave_distance = (width_distance + height_distance) / 2
         #print('[width=%f height=%f\n]' % (ave_width, ave_height))
         #print('[X=%f Y=%f\n]' % (ave_x, ave_y))

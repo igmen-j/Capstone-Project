@@ -12,12 +12,22 @@ from setup import *
 #subsystems
 import camera
 from camera import *
+
 from motor import *
 from buzzer import buzzerSound
 from ultrasonic import getDistance
 
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(16, GPIO.OUT)
+
+
+DISTANCE_TO_BUZZ = 10
+
 if __name__ == '__main__':
     while True:
+ 
+        getCamera()        
+
         distance, position = getCamera()
         changeDutyCycle(20)
         
