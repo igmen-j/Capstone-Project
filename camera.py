@@ -79,22 +79,22 @@ def getCamera():
         #print('[width=%f height=%f\n]' % (ave_width, ave_height))
         #print('[X=%f Y=%f\n]' % (ave_x, ave_y))
       
-        print("Distance: %f" % ave_distance)
+        #print("Distance: %f" % ave_distance)
         if ave_distance > 1 and ave_distance < 2:
             if (ave_x > 0 and ave_x < 105):
-                print("LEFT\n")
+         #       print("LEFT\n")
                 position = "LEFT"
             elif (ave_x >= 105 and ave_x < 210):
-                print("MIDDLE\n")
+          #      print("MIDDLE\n")
                 position = "MIDDLE"
             elif (ave_x >= 210 and ave_x < 315):
-                print("RIGHT\n")
+           #     print("RIGHT\n")
                 position = "RIGHT"
             else:
-                print("ERROR: x = %f\n" % ave_x)
+            #    print("ERROR: x = %f\n" % ave_x)
                 position = "OUT"
         else:
-            print("Out of Bounds\n")
+           # print("Out of Bounds\n")
             position = "OUT"
         
     return ave_distance, position
