@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO
 import time
-from pinList import *
+
+from setup import *
 
 GPIO.setmode(GPIO.BCM)
 

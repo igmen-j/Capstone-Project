@@ -1,5 +1,6 @@
 import RPi.GPIO as GPIO
-from pinList import *
+
+from setup import *
 from time import sleep
 
 # Select GPIO mode

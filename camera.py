@@ -41,6 +41,10 @@ def getCamera():
     ave_height = 0
     ave_count = 0
     
+
+    ave_distance = 100
+    position = "OUT"
+    
     count = pixy.ccc_get_blocks (100, blocks)
 
     if count > 0:
@@ -53,7 +57,6 @@ def getCamera():
             block_y += blocks[index].m_y      
             block_width += blocks[index].m_width
             block_height += blocks[index].m_height
-            #print('[BLOCK: SIG=%d X=%3d Y=%3d WIDTH=%3d HEIGHT=%3d]' % (blocks[index].m_signature, blocks[index].m_x, blocks[index].m_y, blocks[index].m_width, blocks[index].m_height))
 
         block_x /= count
         block_y /= count
@@ -73,28 +76,29 @@ def getCamera():
       
         width_distance = focal_width * object_width / ave_width
         height_distance = focal_height * object_height / ave_height
-        ave_distance = (width_distance + height_distance) /2
+
+        ave_distance = (width_distance + height_distance) / 2
         #print('[width=%f height=%f\n]' % (ave_width, ave_height))
         #print('[X=%f Y=%f\n]' % (ave_x, ave_y))
       
-        print("Distance: %f" % ave_distance)
+        #print("Distance: %f" % ave_distance)
         if ave_distance > 1 and ave_distance < 2:
             if (ave_x > 0 and ave_x < 105):
-                print("LEFT\n")
-                return 1
+         #       print("LEFT\n")
+                position = "LEFT"
             elif (ave_x >= 105 and ave_x < 210):
-                print("MIDDLE\n")
-                return 1
+          #      print("MIDDLE\n")
+                position = "MIDDLE"
             elif (ave_x >= 210 and ave_x < 315):
-                print("RIGHT\n")
-                return 1
+           #     print("RIGHT\n")
+                position = "RIGHT"
             else:
-                print("ERROR: x = %f\n" % ave_x)
+            #    print("ERROR: x = %f\n" % ave_x)
+                position = "OUT"
         else:
-            print("Out of Bounds\n")
-            return 0
+           # print("Out of Bounds\n")
+            position = "OUT"
         
-        return 0
-    return 0
+    return ave_distance, position
 
   
