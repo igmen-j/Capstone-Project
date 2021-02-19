@@ -32,7 +32,7 @@ if __name__ == '__main__':
         
         print("Distance: %f" % distance)  
 		
-				# Robot moves only when user is within 1m and 2m from the robot
+	# Robot moves only when user is within 1m and 2m from the robot
         if distance > 1 and distance < 2:
             print("%s\n" % position)
             if position == "LEFT":
