@@ -55,7 +55,7 @@ def getCamera():
         block_x, block_y, block_width, block_height = getBlockParams(count, blocks)	
 		ave_x, ave_y, ave_width, ave_height = getAverageParams(block_x, block_y, block_width, block_height)
 		distance = getDistance(ave_width, ave_height)
-		position = getPostion(distance, ave_x, ave_y)
+		position = getPostion(ave_x, ave_y)
         
     return distance, position
   
@@ -114,22 +114,15 @@ def getDistance(ave_width, ave_height):
 # Description: Determine the position of the object based on its coordinates and distance
 # Parameters: ave_distance, ave_x, ave_y
 # Returns: position	
-def getPosition(ave_distance, ave_x, ave_y):
-	
-	# if the objects is within 1m and 2m, return a value for the motor
-	# otherwise, it is out of bounds
+def getPosition(ave_x, ave_y):
 	# x range: 0 to 315, y range: 0 to 206
-	if ave_distance > 1 and ave_distance < 2:
-		if (ave_x > 0 and ave_x < 105):
-			position = "LEFT"
-		elif (ave_x >= 105 and ave_x < 210):
-			position = "MIDDLE"
-		elif (ave_x >= 210 and ave_x < 315):
-			position = "RIGHT"
-		else:	# should never be here but added for safety
-			position = "OUT"
-	else:
-	   # print("Out of Bounds\n")
+	if (ave_x > 0 and ave_x < 105):
+		position = "LEFT"
+	elif (ave_x >= 105 and ave_x < 210):
+		position = "MIDDLE"
+	elif (ave_x >= 210 and ave_x < 315):
+		position = "RIGHT"
+	else:	# should never be here but added for safety
 		position = "OUT"
 	
 	return position
