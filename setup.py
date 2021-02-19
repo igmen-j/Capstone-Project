@@ -1,3 +1,9 @@
+#=========================================================#
+# setup.py                                                #
+# Determines the pin list and settings                    #
+#=========================================================#
+
+
 TRIGGER_PIN_LEFT  = 18    # physical pin 12
 ECHO_PIN_LEFT     = 24    # physical pin 18
 TRIGGER_PIN_FRONT = 17    # physical pin 11
