@@ -30,11 +30,17 @@ if __name__ == '__main__':
         distance, position = getCamera()
         changeDutyCycle(20)
         
-        print("Distance: %f" % distance)  
+        print("Distance: %f" % distance) 
+	
+	# Checks the distance of obstacle and robot
+        distanceLeft = getDistance(TRIGGER_PIN_LEFT, ECHO_PIN_LEFT)
+        distanceFront = getDistance(TRIGGER_PIN_FRONT, ECHO_PIN_FRONT)
+        distanceRight = getDistance(TRIGGER_PIN_RIGHT, ECHO_PIN_RIGHT)
 		
-	# Robot moves only when user is within 1m and 2m from the robot
-        if distance > 1 and distance < 2:
+	# Robot moves only when user is within 1m and 2m from the robot and there is not obstacle within 20cm
+        if (distance > 1 and distance < 2) and (distanceLeft > DISTANCE_TO_BUZZ or distanceFront > DISTANCE_TO_BUZZ or distanceRight > DISTANCE_TO_BUZZ):
             print("%s\n" % position)
+	    buzzerSound(0)
             if position == "LEFT":
                 goLeft()
             elif position == "RIGHT":
@@ -47,18 +53,7 @@ if __name__ == '__main__':
 	    buzzerSound(1)
             stopMotors()
             print("Out of Bounds\n")
-        
-	# Checks the distance of obstacle and robot
-        distanceLeft = getDistance(TRIGGER_PIN_LEFT, ECHO_PIN_LEFT)
-        distanceFront = getDistance(TRIGGER_PIN_FRONT, ECHO_PIN_FRONT)
-        distanceRight = getDistance(TRIGGER_PIN_RIGHT, ECHO_PIN_RIGHT)
-                    
-	# print("Left: %.1f cm  |  Front: %.1f cm  |  Right: %.1f cm\n" % (distanceLeft, distanceFront, distanceRight))
-	# Obstacle checker
-        if distanceLeft <= DISTANCE_TO_BUZZ or distanceFront <= DISTANCE_TO_BUZZ or distanceRight <= DISTANCE_TO_BUZZ:
-            buzzerSound(1)
-            stopMotors()
-        else:
-            buzzerSound(0)
+ 
+                 
 
         time.sleep(0.1) 
