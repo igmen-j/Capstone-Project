@@ -1,5 +1,5 @@
 #=================================================================#
-# ENEL 417 Capstone Project										  #
+# ENEL 417 Capstone Project					 					  #
 # Title: Bot Follower											  #
 # Group 9: Danny Hoang, Justin Igmen, Zain Khokhar				  #
 # Description: Robot the can lift things adn follow user around   #                                              
