@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+# From PixyCam code
+
 from __future__ import print_function
 from distutils.core import setup, Extension
 
