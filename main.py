@@ -1,7 +1,7 @@
 #=================================================================#
-# ENEL 417 Capstone Project					 					                    #
-# Title: Bot Follower											                        #
-# Group 9: Danny Hoang, Justin Igmen, Zain Khokhar				        #
+# ENEL 417 Capstone Project                                       #
+# Title: Bot Follower                                             #
+# Group 9: Danny Hoang, Justin Igmen, Zain Khokhar                #
 # Description: Robot the can lift things adn follow user around   #                                              
 #=================================================================#
 
@@ -44,17 +44,17 @@ if __name__ == '__main__':
             else:
                 stopMotors()
         else:
-						buzzerSound(1)
+	    buzzerSound(1)
             stopMotors()
             print("Out of Bounds\n")
         
-				# Checks the distance of obstacle and robot
+	# Checks the distance of obstacle and robot
         distanceLeft = getDistance(TRIGGER_PIN_LEFT, ECHO_PIN_LEFT)
         distanceFront = getDistance(TRIGGER_PIN_FRONT, ECHO_PIN_FRONT)
         distanceRight = getDistance(TRIGGER_PIN_RIGHT, ECHO_PIN_RIGHT)
                     
-				# print("Left: %.1f cm  |  Front: %.1f cm  |  Right: %.1f cm\n" % (distanceLeft, distanceFront, distanceRight))
-				# Obstacle checker
+	# print("Left: %.1f cm  |  Front: %.1f cm  |  Right: %.1f cm\n" % (distanceLeft, distanceFront, distanceRight))
+	# Obstacle checker
         if distanceLeft <= DISTANCE_TO_BUZZ or distanceFront <= DISTANCE_TO_BUZZ or distanceRight <= DISTANCE_TO_BUZZ:
             buzzerSound(1)
             stopMotors()
