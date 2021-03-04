@@ -1,3 +1,5 @@
+// Source: https://github.com/charmedlabs/pixy2/tree/1cfbda14259cf740433ccf52dd04e6e67868e0c7/src/host/libpixyusb2_examples
+
 %module pixy
 
 
