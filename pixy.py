@@ -5,6 +5,7 @@
 # the SWIG interface file instead.
 
 # From PixyCam code
+# Source: https://github.com/charmedlabs/pixy2/tree/1cfbda14259cf740433ccf52dd04e6e67868e0c7/src/host/libpixyusb2_examples/python_demos
 
 from sys import version_info as _swig_python_version_info
 if _swig_python_version_info >= (2, 7, 0):
