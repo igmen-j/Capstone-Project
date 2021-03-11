@@ -22,7 +22,6 @@ from camera import *
 from motor import *
 from buzzer import buzzerSound
 from ultrasonic import getDistance
-from remote import readRemote
 
 GPIO.setmode(GPIO.BCM)
 
