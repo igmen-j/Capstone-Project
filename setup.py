@@ -22,3 +22,10 @@ PWM_PIN           = 12    # physical pin 32
 
 PWM_FREQUENCY     = 1000
 DISTANCE_TO_BUZZ  = 10
+DEFAULT_PWM       = 33
+
+FAR_LEFT          = 0
+MID_LEFT          = 1
+MIDDLE            = 2
+MID_RIGHT         = 3
+FAR_RIGHT         = 4
