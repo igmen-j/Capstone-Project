@@ -29,3 +29,4 @@ MID_LEFT          = 1
 MIDDLE            = 2
 MID_RIGHT         = 3
 FAR_RIGHT         = 4
+OUT_OF_RANGE      = 1000
