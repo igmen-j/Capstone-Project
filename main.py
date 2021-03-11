@@ -40,23 +40,27 @@ if __name__ == '__main__':
         
         # Robot moves only when user is within 1m and 2m from the robot and there is not obstacle within 20cm
         if (distance > MIN_DISTANCE and distance < MAX_DISTANCE) and (distanceLeft > DISTANCE_TO_BUZZ and distanceFront > DISTANCE_TO_BUZZ and distanceRight > DISTANCE_TO_BUZZ):
-            print("%s\n" % position)
             buzzerSound(BUZZER_OFF)
             if position == FAR_LEFT:
                 goLeft()
                 changeDutyCycle(DEFAULT_PWM*1.5)
+                print("Far Left\n")
             elif position == MID_LEFT:
                 goLeft()
                 changeDutyCycle(DEFAULT_PWM)
+                print("Mid Left\n")
             elif position == MIDDLE:
                 goForward()
                 changeDutyCycle(DEFAULT_PWM)
+                print("Middle\n")
             elif position == MID_RIGHT:
                 goRight()
                 changeDutyCycle(DEFAULT_PWM)
+                print("Mid Right\n")
             elif position == FAR_RIGHT:
                 goRight()
                 changeDutyCycle(DEFAULT_PWM*1.5)
+                print("Far Right\n")
             else:
                 stopMotors()
         else:
