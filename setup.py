@@ -33,3 +33,6 @@ OUT_OF_RANGE      = 1000
 
 MIN_DISTANCE      = 1
 MAX_DISTANCE      = 2
+
+BUZZER_OFF        = 0
+BUZZER_ON         = 1
