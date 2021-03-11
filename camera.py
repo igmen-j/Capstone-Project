@@ -137,11 +137,11 @@ def getPosition(ave_x, ave_y):
         position = FAR_LEFT
     elif (ave_x >= 63 and ave_x < 126):
         position = MID_LEFT
-    elif (ave_x >= 63 and ave_x < 126):
+    elif (ave_x >= 125 and ave_x < 189):
         position = MIDDLE
-    elif (ave_x >= 126 and ave_x < 189):
+    elif (ave_x >= 189 and ave_x < 252):
         position = MID_RIGHT
-    elif (ave_x >= 189 and ave_x <= 252):
+    elif (ave_x >= 252 and ave_x <= 315):
         position = FAR_RIGHT
     else:# should never be here but added for safety
         position = OUT_OF_RANGE
