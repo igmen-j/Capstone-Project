@@ -26,7 +26,7 @@ from ultrasonic import getDistance
 GPIO.setmode(GPIO.BCM)
 
 def isInCorrectRange(distance, distanceLeft, distanceFront, distanceRight):
-    if (distance > MIN_DISTANCE and distance < MAX_DISTANCE) and 
+    if (distance > MIN_DISTANCE and distance < MAX_DISTANCE) and \
     (distanceLeft > DISTANCE_TO_BUZZ and distanceFront > DISTANCE_TO_BUZZ_FRONT and distanceRight > DISTANCE_TO_BUZZ):
         return True
     return False
@@ -36,7 +36,7 @@ def getPWMMultiplier(distance, position):
 
     if distance >= distance_far:
         if position == MIDDLE:
-            distance_pwm_multiplier = 1.5
+            distance_pwm_multiplier = 2
         else:
             distance_pwm_multiplier = 1.25
     else:
