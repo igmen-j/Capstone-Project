@@ -21,8 +21,9 @@ RIGHT_MOTOR_INB   = 1     # physical pin 28
 PWM_PIN           = 12    # physical pin 32
 
 PWM_FREQUENCY     = 1000
-DISTANCE_TO_BUZZ  = 10
 DEFAULT_PWM       = 33
+DISTANCE_TO_BUZZ  = 30
+DISTANCE_TO_BUZZ_FRONT  = 70
 
 FAR_LEFT          = 0
 MID_LEFT          = 1
