@@ -28,15 +28,17 @@ GPIO.setmode(GPIO.BCM)
 def isInCorrectRange(distance, distanceLeft, distanceFront, distanceRight):
     if (distance > MIN_DISTANCE and distance < MAX_DISTANCE) and 
     (distanceLeft > DISTANCE_TO_BUZZ and distanceFront > DISTANCE_TO_BUZZ_FRONT and distanceRight > DISTANCE_TO_BUZZ):
-        return 1
-    return 0
+        return True
+    return False
 
 def getPWMMultiplier(distance, position):       
-    distance_div_one = MAX_DISTANCE / 3
-    distance_div_two = MAX_DISTANCE * 2 / 3
+    distance_far = MAX_DISTANCE * 2 / 3
 
-    if distance <= distance_div_one or distance >= distance_div_two:
-        distance_pwm_multiplier = 1.25
+    if distance >= distance_far:
+        if position == MIDDLE:
+            distance_pwm_multiplier = 1.5
+        else:
+            distance_pwm_multiplier = 1.25
     else:
         distance_pwm_multiplier = 1
 
