@@ -38,27 +38,40 @@ if __name__ == '__main__':
         distanceRight = getDistance(TRIGGER_PIN_RIGHT, ECHO_PIN_RIGHT)        
         
         # Robot moves only when user is within 1m and 2m from the robot and there is not obstacle within 20cm
-        if (distance > MIN_DISTANCE and distance < MAX_DISTANCE) and (distanceLeft > DISTANCE_TO_BUZZ and distanceFront > DISTANCE_TO_BUZZ and distanceRight > DISTANCE_TO_BUZZ):
+        if (distance > MIN_DISTANCE and distance < MAX_DISTANCE) and (distanceLeft > DISTANCE_TO_BUZZ and distanceFront > DISTANCE_TO_BUZZ_FRONT and distanceRight > DISTANCE_TO_BUZZ):
             buzzerSound(BUZZER_OFF)
+            
+            distance_div_one = MAX_DISTANCE / 3
+            distance_div_two = MAX_DISTANCE * 2 / 3
+            
+            if distance <= distance_div_one or distance >= distance_div_two:
+                distance_pwm_multiplier = 1.25
+            else:
+                distance_pwm_multiplier = 1
+            
+            if position == FAR_LEFT or position == FAR_RIGHT:
+                position_pwm_multiplier = 1.5
+            elif position == MID_LEFT or position == MID_RIGHT:
+                position_pwm_multiplier = 1.25
+            else:
+                position_pwm_multiplier = 1    
+            
+            changeDutyCycle(DEFAULT_PWM*distance_pwm_multiplier*position_pwm_multiplier)
+            
             if position == FAR_LEFT:
                 goLeft()
-                changeDutyCycle(DEFAULT_PWM*1.5)
                 print("Far Left\n")
             elif position == MID_LEFT:
                 goLeft()
-                changeDutyCycle(DEFAULT_PWM)
                 print("Mid Left\n")
             elif position == MIDDLE:
                 goForward()
-                changeDutyCycle(DEFAULT_PWM)
                 print("Middle\n")
             elif position == MID_RIGHT:
                 goRight()
-                changeDutyCycle(DEFAULT_PWM)
                 print("Mid Right\n")
             elif position == FAR_RIGHT:
                 goRight()
-                changeDutyCycle(DEFAULT_PWM*1.5)
                 print("Far Right\n")
             else:
                 stopMotors()
