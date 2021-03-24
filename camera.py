@@ -10,8 +10,9 @@ import pixy
 from ctypes import *
 from pixy import *
 
+get_all_features = True
+
 pixy.init ()
-pixy.change_prog ("color_connected_components");
 
 #========== Block initialization ===========
 class Blocks (Structure):
@@ -31,6 +32,10 @@ block_width = 0
 block_height = 0
 #==========================================
 
+#==========================================
+barcodes = BarcodeArray(100)
+#==========================================
+
 #============= Vest Dimensions ============
 # Source: https://www.pyimagesearch.com/2015/01/19/find-distance-camera-objectmarker-using-python-opencv/
 # Vest dimensions
@@ -46,16 +51,25 @@ focal_height = 250.9375 # pixels
 # Parameters: None
 # Returns: distance, position
 def getCamera():   
+    pixy.change_prog ("color_connected_components");
     distance = 100 # default value for distance in meters
     position = "OUT" # default value for position (Out of Bounds)
     ave_count = 0
     count = pixy.ccc_get_blocks (100, blocks) # gets the number of blocks detected by the camera
-    
-    if count > 0:  #if there are blocks detected
+        
+    pixy.change_prog ("line");
+    if get_all_features:
+        line_get_all_features ()
+    else:
+        line_get_main_features ()
+        
+    b_count = line_get_barcodes(100, barcodes)
+    if b_count > 0 and count > 0:  #if there are blocks detected
         block_x, block_y, block_width, block_height = getBlockParams(count, blocks)	
         ave_x, ave_y, ave_width, ave_height = getAverageParams(ave_count, block_x, block_y, block_width, block_height)
         distance = getDistance(ave_width, ave_height)
-        position = getPosition(ave_x, ave_y)
+        position = getPosition(ave_x, ave_y):
+        
         
     return distance, position
   
