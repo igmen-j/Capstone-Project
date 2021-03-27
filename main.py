@@ -36,7 +36,7 @@ def getPWMMultiplier(distance, position):
 
     if distance >= distance_far:
         if position == MIDDLE:
-            distance_pwm_multiplier = 2
+            distance_pwm_multiplier = 1.5
         else:
             distance_pwm_multiplier = 1.25
     else:
