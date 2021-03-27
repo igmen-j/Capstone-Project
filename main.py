@@ -33,12 +33,13 @@ def isInCorrectRange(distance, distanceLeft, distanceFront, distanceRight):
 
 def getPWMMultiplier(distance, position):       
     distance_far = MAX_DISTANCE * 2 / 3
+    
+    distance_pwm_multiplier = 1
+    position_pwm_multiplier = 1
 
     if distance >= distance_far:
         if position == MIDDLE:
             distance_pwm_multiplier = 1.5
-        else:
-            distance_pwm_multiplier = 1.25
     else:
         distance_pwm_multiplier = 1
 
