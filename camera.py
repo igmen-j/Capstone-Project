@@ -124,15 +124,26 @@ def getDistance(ave_width, ave_height):
 # Description: Determine the position of the object based on its coordinates and distance
 # Parameters: ave_distance, ave_x, ave_y
 # Returns: position
+
+FAR_LEFT          = 0
+MID_LEFT          = 1
+MIDDLE            = 2
+MID_RIGHT         = 3
+FAR_RIGHT         = 4
+
 def getPosition(ave_x, ave_y):
     # x range: 0 to 315, y range: 0 to 206
-    if (ave_x > 0 and ave_x < 105):
-        position = "LEFT"
-    elif (ave_x >= 105 and ave_x < 210):
-        position = "MIDDLE"
-    elif (ave_x >= 210 and ave_x < 315):
-        position = "RIGHT"
+    if (ave_x > 0 and ave_x < 63):
+        position = FAR_LEFT
+    elif (ave_x >= 63 and ave_x < 126):
+        position = MID_LEFT
+    elif (ave_x >= 125 and ave_x < 189):
+        position = MIDDLE
+    elif (ave_x >= 189 and ave_x < 252):
+        position = MID_RIGHT
+    elif (ave_x >= 252 and ave_x <= 315):
+        position = FAR_RIGHT
     else:# should never be here but added for safety
-        position = "OUT"
+        position = OUT_OF_RANGE
 
     return position
